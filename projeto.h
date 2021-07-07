@@ -55,7 +55,6 @@ void Projeto::initGraph(string nomeArquivo, string &AO, string &AD)
     fstream arquivo;
     int numVert = 0;
 
-    //nomeArquivo="arquivo.txt";
     arquivo.open(nomeArquivo.c_str(), std::ios::in);
     while (!arquivo.is_open()){
         printf("O arquivo de Voos nao foi aberto! Tente novamente\nNome do arquivo: \n");
@@ -96,7 +95,7 @@ void  Projeto::organizeData(vector<string>& w, int& numVert)
         {
             viajemAux1.setAll(w[0],"P", w[i - 1], w[i+1]);
             viajemAux2.setAll(w[0],"C", w[i - 1], w[i+1]);
-            orig=insertVert(w[i-3],&viajemAux1, numVert);
+            orig=insertVert(w[i-3],&viajemAux1, numVert);    //aqui
             insertArest(dest, orig); //tempo de esperar na escala
             dest=insertVert(w[i],&viajemAux2, numVert);
             insertArest(orig, dest);
